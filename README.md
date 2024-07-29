@@ -43,8 +43,7 @@ A simple and efficient notes application built with Android. This app allows use
 ## Screenshots
 ![Screenshot from 2024-07-29 10-58-28](https://github.com/user-attachments/assets/9d042a86-3c0c-4079-8190-b41666cb688e)
 
-## Download Apk
-[download apk](https://github.com/chirag640/NotesApp-App-Dev-/blob/main/app-debug.apk)
+
 ## Contributing
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
