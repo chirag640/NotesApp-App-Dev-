@@ -12,18 +12,18 @@ import java.util.List;
 
 @Dao
 public interface MainDAO {
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Notes notes);
 
     @Query("SELECT * FROM notes ORDER BY id DESC")
     List<Notes> getAll();
 
-    @Query("UPDATE notes SET title = :title, note = :notes WHERE id = :id")
-    void update(int id, String title, String notes);
+    @Query("UPDATE notes SET title = :title, note = :note WHERE id = :id")
+    void update(int id, String title, String note);
 
     @Delete
     void delete(Notes notes);
 
-    // Optional: Add more query methods as needed
+    @Query("UPDATE notes SET pinned = :pin WHERE id = :id")
+    void pin(int id, boolean pin);
 }

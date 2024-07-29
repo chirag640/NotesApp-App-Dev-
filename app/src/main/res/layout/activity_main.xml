@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,37 +7,45 @@
     android:background="@color/black"
     tools:context=".MainActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/navLL"
-        android:orientation="horizontal"
-        >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Note App"
-                android:textColor="@color/green"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-black"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="12dp"
-                />
-
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note App"
+            android:textColor="@color/green"
+            android:textSize="30sp"
+            android:fontFamily="sans-serif-black"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="12dp" />
     </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchViewCard"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/navLL"
+        app:cardCornerRadius="20dp">
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:id="@+id/searchView"
+            android:layout_height="?attr/actionBarSize"
+            app:queryHint="Search Note"
+            app:iconifiedByDefault="false"
+            android:background="@color/color5"/>
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/noteRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/navLL"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/searchViewCard"
         android:layout_marginHorizontal="10sp"
-        android:layout_marginVertical="20sp"
-        android:layout_marginTop="98dp"
-        android:layout_marginBottom="464dp" />
+        android:layout_marginVertical="20sp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
@@ -49,7 +56,5 @@
         android:layout_marginHorizontal="20sp"
         android:layout_marginVertical="24sp"
         android:backgroundTint="@color/green"
-        android:src="@drawable/baseline_add_24"
-        />
-
+        android:src="@drawable/baseline_add_24" />
 </RelativeLayout>

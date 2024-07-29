@@ -2,7 +2,6 @@ package com.chirag.notesapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -23,6 +22,7 @@ public class NoteTakeActivity extends AppCompatActivity {
     EditText titleEdt, noteEdt;
     ImageView saveBtn;
     Notes notes;
+    boolean isOldNotes = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +35,16 @@ public class NoteTakeActivity extends AppCompatActivity {
         noteEdt = findViewById(R.id.noteEdt);
         saveBtn = findViewById(R.id.saveBtn);
 
-        saveBtn.setOnClickListener(view -> {
+        notes = (Notes) getIntent().getSerializableExtra("old_data");
+        if (notes != null) {
+            titleEdt.setText(notes.getTitle());
+            noteEdt.setText(notes.getNote());
+            isOldNotes = true;
+        } else {
             notes = new Notes();
+        }
+
+        saveBtn.setOnClickListener(view -> {
             String title = titleEdt.getText().toString();
             String description = noteEdt.getText().toString();
             if (description.isEmpty()) {
@@ -55,7 +63,6 @@ public class NoteTakeActivity extends AppCompatActivity {
             setResult(RESULT_OK, intent);
             finish();
         });
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
